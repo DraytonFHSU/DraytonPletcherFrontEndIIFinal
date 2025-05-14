@@ -12,20 +12,38 @@ export default function AddTicket() {
     initialValues: {
       title: "",
       description: "",
+      date: "",
+      location: "",
+      price: "",
     },
 
     validationSchema: Yup.object({
       title: Yup.string()
-        .max(10, "Title must be 10 characters or less")
+        // .max(10, "Title must be 10 characters or less")
         .required("Title is required"),
       description: Yup.string()
-        .max(20, "Description must bt 20 characters or less")
+        // .max(20, "Description must bt 20 characters or less")
         .required("Description is required"),
+      date: Yup.string()
+        // .max(20, "Description must bt 20 characters or less")
+        .required("Date is required"),
+      location: Yup.string()
+        // .max(20, "Description must bt 20 characters or less")
+        .required("Location is required"),
+      price: Yup.number()
+        .typeError("Price must be a number")
+        .required("Price is required")
+        .positive("Price must be positive"),
     }),
 
     onSubmit: (values) => {
+      const ticketData = {
+        ...values,
+        price: parseFloat(values.price), // Convert price to number
+      };
+
       if (ticketEdit.edit === true) {
-        updateTicket(ticketEdit.ticket.id, values);
+        updateTicket(ticketEdit.ticket.id, ticketData);
         formik.resetForm();
         ticketEdit.edit = false;
       } else {
@@ -110,6 +128,7 @@ export default function AddTicket() {
             <input
               type="text"
               className="input"
+              name="date"
               placeholder="Ticket Date"
               onChange={formik.handleChange}
               value={formik.values.date}
@@ -151,7 +170,7 @@ export default function AddTicket() {
                 : "Price"}
             </label>
             <input
-              type="text"
+              type="number"
               className="input"
               name="price"
               placeholder="Ticket price"

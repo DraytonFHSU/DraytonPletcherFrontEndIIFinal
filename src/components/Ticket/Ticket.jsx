@@ -35,11 +35,8 @@ export default function Ticket({ id, title, description, date, location, price, 
           className="text-display"
           style={null}
         >
-          {price}
+          ${price}
         </div>
-        <button onClick={() => editTicket(ticket)} className="edit">
-          <p>Edit</p>
-        </button>
         <button onClick={() => deleteTicket(id)} className="delete">
           <p>Delete</p>
         </button>

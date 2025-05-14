@@ -34,7 +34,11 @@ export default function EventDetailsPage() {
                             </div>
                             <div className="mb-6" />
                                 <div className="flex flex-wrap items-center mb-5">
-                                <button onClick={() => addToCart(eventDetails)}
+                                <button onClick={() => {
+                                    addToCart(eventDetails);
+                                    navigate("/home");
+                                }
+                                }
                                     className="w-full px-4 py-3 text-center text-pink-600 bg-pink-100 border border-pink-600 hover:bg-pink-600 hover:text-gray-100 rounded-xl"
                                 >
                                     Add to Cart

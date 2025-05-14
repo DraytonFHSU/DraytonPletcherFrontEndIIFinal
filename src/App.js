@@ -12,6 +12,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import ProfilePage from "./pages/ProfilePage";
 import EventDetails from "./pages/EventDetailsPage"
 import CartPage from "./pages/CartPage"
+import AddTicket from "./components/Ticket/AddTicket";
+import BookingConfirmation from "./pages/BookingConfirmationPage";
 
 // Where all the routing happens
 export default function App() {
@@ -48,12 +50,20 @@ export default function App() {
                 }
               />
               <Route 
+                path="/AddTicket" 
+                element={<AddTicket />}  
+              />
+              <Route 
                 path="/EventDetailsPage" 
                 element={<EventDetails />}  
               />
               <Route 
                 path="/CartPage" 
                 element={<CartPage />}  
+              />
+              <Route 
+                path="/BookingConfirmation" 
+                element={<BookingConfirmation />}  
               />
               <Route path="*" element={<NotFound />} />
             </Routes>

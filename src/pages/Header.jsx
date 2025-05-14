@@ -19,23 +19,26 @@ export default function Header() {
   return (
     <>
       <div className="header">
-        <h1>Welcome to the Task Manager</h1>
+        <h1>Welcome to the Ticket Manager</h1>
         <nav>
           <ul>
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
+              <NavLink to="/CartPage">Cart</NavLink>
+            </li>
+            {/* <li>
               <NavLink to="/signIn">Register</NavLink>
             </li>
             <li>
-              <NavLink to="/CartPage">Cart</NavLink>
-            </li>
-            <li>
               <NavLink to="/about">About</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/profile">Profile</NavLink>
+            </li>
+            <li>
+              <NavLink to="/addTicket">Add a Ticket</NavLink>
             </li>
             <li>
               <NavLink onClick={handelLogout}>Logout</NavLink>

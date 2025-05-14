@@ -6,7 +6,7 @@ export default function Footer() {
     <div className="footer">
       <h1>Get Connected with our network</h1>
       <div id="icons">
-        <p>No Icons 4 you</p>
+        <p>Facebook Twitter</p>
       </div>
     </div>
   );

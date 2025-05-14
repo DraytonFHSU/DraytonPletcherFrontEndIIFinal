@@ -1,14 +1,17 @@
 import React from "react";
 import { CartContext } from "../components/contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
   const {cart} = React.useContext(CartContext);
 
 //Calculate total price
-const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+const totalPrice = cart.reduce((total, item) => total + item.data.price, 0)
 
 // Calculate discount
 const discount = totalPrice * 0.1;
+
+const navigate = useNavigate();
 
   return (
     <div className="CartPage">
@@ -101,7 +104,9 @@ const discount = totalPrice * 0.1;
                     </dl>
                     <div>
                       <div>
-                        <button>Buy Now</button>
+                        <button onClick={()=>{ navigate("/BookingConfirmation"); }
+                        }>
+                          Buy Now</button>
                       </div>
                     </div>
                   </div>
